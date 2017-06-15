@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'my-test-package',
+  name: 'my-meteor-package',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',
@@ -13,16 +13,12 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.5');
   api.use('ecmascript');
-  api.mainModule('my-test-package.js');
+  api.mainModule('my-meteor-package.js');
 });
 
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('my-test-package');
-  api.mainModule('my-test-package-tests.js');
-});
-
-Npm.depends({
-  "../my-npm-project":"0.1.0"
+  api.use('my-meteor-package');
+  api.mainModule('my-meteor-package-tests.js');
 });
