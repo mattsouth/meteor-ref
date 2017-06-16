@@ -4,11 +4,20 @@ To use:
 ``
 your-machine$ git clone https://github.com/mattsouth/meteor-ref.git
 your-machine$ cd meteor-ref
+``
+check that the npm project is usable...
+``
 your-machine$ node
 > console.log(require('./my-npm-project').msg)
 Hello World!
-ctrl-D
-your-machine$ cd my-meteor-package
-your-mcahine$ meteor test-packages ./
 ``
-If you the inclusion is correct your should see green tests at http://localhost:3000
+If you see the Hello World! then it works.  It's ctrl-D to escape the node REPL.  Now we need to install the node package to the meteor package.
+``
+your-machine$ cd my-meteor-package
+your-machine$ meteor npm install '../my-npm-project'
+``
+This will show an error because you dont have a package.json file but it will install your package so that you can now run the tests..
+``
+your-machine$ meteor test-packages ./
+``
+You should see green tests at http://localhost:3000
